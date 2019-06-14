@@ -24,6 +24,8 @@ Maybe, your `aws-sdk-ruby` is not latest. Please exec `bundle update` and `bundl
 1. Create your feature branch (`git checkout -b add-type-cf-limit`)
 2. Generate template files (`bundle exec bin/toolbox template cloudformation_account_attributes -a`) **with -a option**
 3. Fill files with code.
+    1. add the new type to `helper/finder.rb` in the `require` section and the `ModuleFinder`
+    1. add the new type to `helper/type.rb` in the `TYPES` list
 4. Generate [doc/resource_types.md](doc/resource_types.md) (`bundle exec bin/toolbox docgen > doc/resource_types.md`)
 5. Run test (`bundle exec rake spec`)
 6. Push to the branch (`git push origin add-type-cf-limit`)
