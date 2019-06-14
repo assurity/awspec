@@ -15,6 +15,7 @@ require 'awspec/helper/finder/autoscaling'
 require 'awspec/helper/finder/ebs'
 require 'awspec/helper/finder/elb'
 require 'awspec/helper/finder/firehose'
+require 'awspec/helper/finder/flow_log'
 require 'awspec/helper/finder/lambda'
 require 'awspec/helper/finder/iam'
 require 'awspec/helper/finder/kms'
@@ -101,6 +102,7 @@ module Awspec::Helper
     include Awspec::Helper::Finder::Redshift
     include Awspec::Helper::Finder::Codedeploy
     include Awspec::Helper::Finder::Mq
+    include Awspec::Helper::Finder::FlowLog
 
     CLIENTS = {
       ec2_client: Aws::EC2::Client,
