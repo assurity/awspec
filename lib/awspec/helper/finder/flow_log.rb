@@ -12,7 +12,7 @@ module Awspec::Helper
         res = ec2_client.describe_flow_logs({
                                               filters: [{name: 'vpc-id', values: [vpc_id]}]
                                             })
-        res.flow_logs.single_resource(id)
+        res.flow_logs
       end
     end
   end
