@@ -39,6 +39,7 @@
 | [elb](#elb)
 | [emr](#emr)
 | [firehose](#firehose)
+| [flow_log](#flow_log)
 | [iam_group](#iam_group)
 | [iam_policy](#iam_policy)
 | [iam_role](#iam_role)
@@ -1628,6 +1629,24 @@ describe firehose('my-firehose') do
   its(:delivery_stream_type) { should be_eql('DirectPut') }
 end
 ```
+
+## <a name="flow_log">flow_log</a>
+
+FlowLog resource type.
+
+### exist
+
+```ruby
+describe flow_log('my-flow-log') do
+  it { should exist }
+end
+```
+
+
+### its(:creation_time), its(:deliver_logs_error_message), its(:deliver_logs_permission_arn), its(:deliver_logs_status), its(:flow_log_id), its(:flow_log_status), its(:log_group_name), its(:resource_id), its(:traffic_type), its(:log_destination_type), its(:log_destination)
+### :unlock: Advanced use
+
+`flow_log` can use `Aws::EC2::Types::FlowLog` resource (see https://docs.aws.amazon.com/sdkforruby/api/Aws/EC2/Types/FlowLog.html).
 
 ## <a name="iam_group">iam_group</a>
 
@@ -3427,6 +3446,14 @@ end
 ```
 
 
+### have_flow_log
+```ruby
+describe vpc('vpc-ab123cde') do
+  it { should have_flow_log }
+end
+```
+
+
 ### have_network_acl
 
 ```ruby
@@ -3464,6 +3491,7 @@ describe vpc('vpc-ab123cde') do
   it { should_not have_vpc_attribute('enableDnsSupport') }
 end
 ```
+
 
 
 ### have_vpc_peering_connection
