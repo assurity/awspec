@@ -62,5 +62,11 @@ module Awspec::Type
     def has_vpc_attribute?(vpc_attribute)
       find_vpc_attribute(resource_via_client.vpc_id, vpc_attribute)
     end
+
+    def has_flow_log?
+      flow_log = find_flow_log_by_vpc_id(@id)
+      return false unless flow_log
+      flow_log.resource_id == id
+    end
   end
 end

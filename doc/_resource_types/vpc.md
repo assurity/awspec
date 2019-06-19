@@ -69,6 +69,14 @@ describe vpc('vpc-ab123cde') do
 end
 ```
 
+
+### have_flow_log
+```ruby
+describe vpc('vpc-ab123cde') do
+  it { should have_flow_log }
+end
+```
+
 ### advanced
 
 `vpc` can use `Aws::EC2::Vpc` resource (see http://docs.aws.amazon.com/sdkforruby/api/Aws/EC2/Vpc.html).
