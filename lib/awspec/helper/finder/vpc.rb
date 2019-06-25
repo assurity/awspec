@@ -110,6 +110,13 @@ module Awspec::Helper
         end
         attributes
       end
+
+      def find_flow_log_by_vpc_id(vpc_id)
+        res = ec2_client.describe_flow_logs({
+                                              filter: [{name: 'resource-id', values: [vpc_id]}]
+                                            })
+        res.flow_logs[0] if res.flow_logs && res.flow_logs.length > 0
+      end
     end
   end
 end
